@@ -1,0 +1,7 @@
+torch>=2.2
+torchvision>=0.17
+numpy>=1.26
+scikit-learn>=1.4
+matplotlib>=3.8
+Pillow>=10.0
+datasets>=2.19  # required only when --dataset beans

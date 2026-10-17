@@ -1,0 +1,19 @@
+Required lecturer spreadsheet: https://docs.google.com/spreadsheets/d/1KPWTV8SlZj82ECF4tCvc6EpMp172a8641kJ2z2s1ijg/edit?usp=drive_link
+
+Suggested group entry (use appropriate columns in sheet):
+Group: Cybertron
+Dataset: Optical Recognition of Handwritten Digits (scikit-learn load_digits copy)
+Source: UCI ML Repository, https://archive.ics.uci.edu/dataset/80/optical+recognition+of+handwritten+digits
+Original images: 1797 samples of 8x8 grayscale digits (0-9)
+Used input: 32x32 pixels, 3 identical grayscale copies as RGB channels
+Number of classes: 10
+Training: 1257 (69.95%)
+Validation: 270 (15.03%)
+Testing: 270 (15.03%)
+Split seed: 42, stratified
+CNN implementation: PyTorch
+
+Note: This file contains the actual OFFLINE dataset used in the provided measured report.
+Makerere Beans is supported by the code only as a separate dataset option; it has not
+been downloaded or measured in the offline environment. If you switch to Beans,
+update the sheet and rerun ALL model comparisons and the report with matching results.
