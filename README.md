@@ -1,6 +1,4 @@
-# Cybertron — EN3150 Assignment 03
-
-**University of Moratuwa • Pattern Recognition • October 2026**
+# Cybertron - EN3150 Assignment 03
 
 **Team:** Cybertron (230018T, 230074J, 230476T, 230486A)
 
