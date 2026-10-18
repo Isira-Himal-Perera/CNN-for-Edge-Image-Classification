@@ -1,4 +1,4 @@
-"""Real training/metric collection. Run: python run_experiments.py --dataset digits"""
+"""Training, evaluation and plotting. Run: python run_experiments.py --dataset digits"""
 import csv,json,random,time,argparse,platform,traceback,copy
 from pathlib import Path
 import numpy as np
@@ -58,7 +58,7 @@ def run_epochs(model,loaders,epochs,optimizer,device='cpu',history=None):
             best_val=record['val_loss']
             best_state=copy.deepcopy(model.state_dict())
         print(f"epoch {record['epoch']:02d} train-loss={record['train_loss']:.4f} val-loss={record['val_loss']:.4f} val-accuracy={record['val_accuracy']:.3f} time={record['train_and_validation_seconds']:.1f}s",flush=True)
-    # Select model with smallest VALIDATION loss; test data are never used for selection.
+    # Restore the checkpoint with the smallest validation loss.
     model.load_state_dict(best_state)
     return history
 
@@ -151,7 +151,7 @@ def main():
                 all_results[name]=describe_run(m,hist,metrics,output_dir,name,classes,image_size,device)
                 dump_json(output_dir/'results_summary.json',all_results)
             except Exception as exc:
-                # No invented accuracy! Logs show which weights failed to download.
+                # Log the failure and continue with the next model.
                 info={'model':name,'status':'not_completed','reason':str(exc),'traceback':traceback.format_exc()[-1600:]}
                 dump_json(output_dir/f'{name}_FAILED.json',info)
                 print('PRETRAINED RUN INCOMPLETE:',str(exc)[:250],flush=True)

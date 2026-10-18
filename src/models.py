@@ -28,7 +28,7 @@ class EdgeCNN(nn.Module):
 
 
 def load_pretrained(name,num_classes,allow_download=True):
-    """Truly ImageNet PRETRAINED weights required: fail loudly rather than pretend."""
+    """Load ImageNet-pretrained weights; raise an error if they cannot be downloaded."""
     if name == 'mobilenet_v2':
         w=models.MobileNet_V2_Weights.IMAGENET1K_V2
         m=models.mobilenet_v2(weights=w if allow_download else None)

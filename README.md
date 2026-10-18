@@ -13,7 +13,7 @@ python -m pip install -r requirements.txt
 python run_experiments.py --dataset digits --epochs 25
 ```
 
-The default **Digits** dataset is built into scikit-learn (offline, 1,797 real 8×8 images). It was chosen so genuine custom-CNN experiments could be executed in an environment where external downloads are blocked. The dataset is derived from the UCI Optical Recognition of Handwritten Digits dataset. The report clearly labels this instead of implying results came from Beans.
+The default **Digits** dataset ships inside scikit-learn (1,797 real 8×8 grayscale images), derived from the UCI Optical Recognition of Handwritten Digits dataset, so the custom-CNN experiments run fully offline.
 
 For the originally planned 3-class **Makerere Beans** project (needs internet to retrieve 1,295 RGB images):
 
@@ -27,7 +27,7 @@ To evaluate **two truly pretrained lightweight SOTA models** with the offline Di
 python run_experiments.py --dataset digits --output results --only-sota --sota
 ```
 
-`--sota` uses ImageNet pretrained weights, trains the classifier heads for 7 epochs, and fine-tunes a small final part of each backbone for 3 further epochs. These additional trials have already been completed in Google Colab. The script remains runnable, but rerunning the fine-tuning stage can give different results depending on hardware/software versions. If weight download fails, the code records `*_FAILED.json` and will not present random-initialized models as pretrained. See `notebooks/README.md` only if you want to rerun the experiment.
+`--sota` uses ImageNet pretrained weights, trains the classifier heads for 7 epochs, and fine-tunes a small final part of each backbone for 3 further epochs. These trials were completed in Google Colab; rerunning them can give slightly different results on different hardware or software versions. If the weight download fails, the run is recorded in a `*_FAILED.json` file. See `notebooks/README.md` only if you want to rerun the experiment.
 
 ## Experimental protocol
 
@@ -50,10 +50,9 @@ python run_experiments.py --dataset digits --output results --only-sota --sota
 | `report/Cybertron_A03_EN3150.tex` | Editable LaTeX report |
 | `report/Cybertron_A03_EN3150.pdf` | Compiled report |
 
-## Licensing, sources and academic note
+## Sources
 
 - Digits: UCI Optical Recognition of Handwritten Digits, accessed through scikit-learn (`load_digits`).
 - Beans dataset: Makerere AI Lab, [Bean disease images](https://github.com/AI-Lab-Makerere/ibean) (MIT license).
 - Pretrained models: torchvision weights from ImageNet-1K.
-- Review the reported results and interpretations before submitting. The pretrained trials were completed in Google Colab; their results and checkpoints are saved in `results/`.
-- No artificial commits or backdated authorship. Commit authentic changes as they are made.
+- The pretrained trials were completed in Google Colab; their results and checkpoints are saved in `results/`.

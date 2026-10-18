@@ -1,4 +1,4 @@
-"""Structural stats may be inspected without pretending they were trained."""
+"""Parameter counts and MAC estimates for the pretrained architectures."""
 import json
 from pathlib import Path
 from torchvision import models

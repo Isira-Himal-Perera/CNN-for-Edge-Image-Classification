@@ -1,19 +1,15 @@
-# How to complete ImageNet transfer-learning runs in Colab
+# Notebooks
 
-1. Upload/extract `Cybertron_A03_EN3150.zip` into Colab (or clone your public repository after uploading).
-2. In Colab, select **Runtime > Change runtime type > T4 GPU** if available.
-3. In a notebook cell:
+`Cybertron_A03_End_To_End.ipynb` runs the entire assignment pipeline in one place: dataset split, both custom CNNs, the optimizer comparison, and the two pretrained fine-tunings — with training logs, metrics, loss curves and confusion matrices shown inline.
 
-```python
-%cd /content/Cybertron_A03_EN3150
-!pip -q install -r requirements.txt
-!python run_experiments.py --dataset digits --output results --only-sota --sota
-```
+## In Colab
 
-Or use the originally planned Beans dataset (all four CNN runs plus SOTA):
+1. Upload and extract the project ZIP (or clone the repository).
+2. Select **Runtime → Change runtime type → T4 GPU**.
+3. Run all cells. The first cell installs the requirements; the fine-tuning section downloads the ImageNet weights once.
 
-```python
-!python run_experiments.py --dataset beans --output results_beans --epochs 20 --sota
-```
+## Locally
 
-4. Download the corresponding `results/` directory. It contains saved weights, measured scores, confusion matrices, and loss curves. Use the same run's data throughout the report. Test results from Beans must **not** be mixed with the Digits offline demonstration.
+Install `requirements.txt`, then open the notebook from the repository root and run all cells.
+
+Outputs go to `results_notebook/`, so the recorded `results/` directory used for the report stays untouched. GPU runs are not bit-reproducible, so a fresh run can give slightly different numbers; the report tables come from the JSON files in `results/`.

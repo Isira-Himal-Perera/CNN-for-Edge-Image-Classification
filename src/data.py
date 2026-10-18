@@ -35,14 +35,14 @@ def load_offline_digits(image_size=SIZE):
 
 
 def load_beans(image_size=SIZE):
-    """Requires the internet and datasets+Pillow. NEVER silently substitute a dataset."""
+    """Requires internet access and the datasets and Pillow packages."""
     try:
         from datasets import load_dataset
     except ImportError as exc:
         raise RuntimeError('For Beans install datasets and Pillow: pip install datasets pillow') from exc
     from PIL import Image
     raw = load_dataset('AI-Lab-Makerere/beans')
-    # Recombine original train/validation/test before the REQUIRED 70/15/15 split.
+    # Recombine the original splits before making the 70/15/15 division.
     imgs = []
     labs = []
     for splitname in ['train','validation','test']:
