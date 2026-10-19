@@ -21,7 +21,7 @@ To evaluate **two truly pretrained lightweight SOTA models** with the offline Di
 python run_experiments.py --dataset digits --output results --only-sota --sota
 ```
 
-`--sota` uses ImageNet pretrained weights, trains the classifier heads for 7 epochs, and fine-tunes a small final part of each backbone for 3 further epochs. These trials were completed in Google Colab; rerunning them can give slightly different results on different hardware or software versions. If the weight download fails, the run is recorded in a `*_FAILED.json` file. See `notebooks/README.md` only if you want to rerun the experiment.
+`--sota` uses ImageNet pretrained weights, trains the classifier heads for 7 epochs, and fine-tunes a small final part of each backbone for 3 further epochs. These trials were completed in Google Colab; rerunning them can give slightly different results on different hardware or software versions. If the weight download fails, the run is recorded in a `*_FAILED.json` file. See `notebooks/README.md` only if you want to rerun the experiment. The report's numbers are produced by running `run_experiments.py`; the notebook is only for demonstration, so its figures can differ slightly.
 
 ## Experimental protocol
 
