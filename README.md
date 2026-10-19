@@ -47,7 +47,7 @@ python run_experiments.py --dataset digits --output results --only-sota --sota
 | `src/models.py` | Custom CNNs, pretrained network adapters, MAC estimator |
 | `src/experiment.py` | Training, testing, graphs and JSON metrics |
 | `results/` | Recorded real experiment results and plots |
-| `Cybertron_A03_EN3150.pdf` | Compiled report (submitted separately on Moodle) |
+| `Cybertron_A03_EN3150.pdf` | Compiled report |
 
 ## Sources
 
