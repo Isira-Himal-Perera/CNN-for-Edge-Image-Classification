@@ -13,13 +13,7 @@ python -m pip install -r requirements.txt
 python run_experiments.py --dataset digits --epochs 25
 ```
 
-The default **Digits** dataset ships inside scikit-learn (1,797 real 8×8 grayscale images), derived from the UCI Optical Recognition of Handwritten Digits dataset, so the custom-CNN experiments run fully offline.
-
-For the originally planned 3-class **Makerere Beans** project (needs internet to retrieve 1,295 RGB images):
-
-```bash
-python run_experiments.py --dataset beans --output results_beans --epochs 20 --sota
-```
+The **Digits** dataset ships inside scikit-learn (1,797 real 8×8 grayscale images), derived from the UCI Optical Recognition of Handwritten Digits dataset, so all experiments run fully offline.
 
 To evaluate **two truly pretrained lightweight SOTA models** with the offline Digits experiment:
 
@@ -52,6 +46,5 @@ python run_experiments.py --dataset digits --output results --only-sota --sota
 ## Sources
 
 - Digits: UCI Optical Recognition of Handwritten Digits, accessed through scikit-learn (`load_digits`).
-- Beans dataset: Makerere AI Lab, [Bean disease images](https://github.com/AI-Lab-Makerere/ibean) (MIT license).
 - Pretrained models: torchvision weights from ImageNet-1K.
 - The pretrained trials were completed in Google Colab; their results and checkpoints are saved in `results/`.
